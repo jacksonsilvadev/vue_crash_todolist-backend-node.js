@@ -1,8 +1,8 @@
 <template>
   <header class="header">
     <div>
-      <a href="https://github.com/JackFront">
-        <img class="img" src="../../assets/vue-node.png" alt="Git Hub / Jackson Silva">
+      <a href="https://github.com/JackFront/vue_crash_todolist-backend-node.js">
+        <img class="img" src="../../assets/vue-node.png" alt="GitHub - To-Do-List">
       </a>
     </div>
     <div id="nav">
