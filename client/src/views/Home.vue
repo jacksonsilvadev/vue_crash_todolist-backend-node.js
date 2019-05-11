@@ -30,16 +30,16 @@ export default {
   methods: {
     deleteTodo(id) {
       axios
-        .delete(`http://localhost:3000/api/task/${id}`)
+        .delete(`/api/task/${id}`)
         .then(res => (this.indexTodo()))
-        .catch(err => console.log(err));
+        .catch(err => console.log(err.message));
       // this.todos = this.todos.filter(todo => todo.id !== id)
     },
     addTodo(e) {
       const { name, completed } = e;
 
       axios
-        .post("http://localhost:3000/api/task/", {
+        .post("/api/task/", {
           name,
           completed
         })
@@ -51,7 +51,7 @@ export default {
       
       const { name, completed } = e;
       axios
-        .put(`http://localhost:3000/api/task/${e._id}`, {
+        .put(`/api/task/${e._id}`, {
           name,
           completed
         })
@@ -61,11 +61,11 @@ export default {
         .catch(err => console.log(err))
     },
     indexTodo(){
-      console.log()
+      
     axios
-      .get("http://localhost:3000/api/task")
+      .get("/api/task")
       .then(res => (this.todos = res.data))
-      .catch(err => console.log(err));
+      .catch(err => console.log(err.message));
     }
   },
   created() {
