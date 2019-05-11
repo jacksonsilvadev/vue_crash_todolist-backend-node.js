@@ -8,7 +8,7 @@ const history = require('connect-history-api-fallback');
 
 const app = express();
 // Nem sendo assim
-const staticFileMiddleware = express.static(path.join(__dirname))
+// const staticFileMiddleware = express.static(path.join(__dirname));
 
 
 // Aceitar json
@@ -17,14 +17,14 @@ app.use(express.json());
 // Liberar dados para público
 app.use(cors());
 
-mongoose.connect('mongodb://localhost:27017/to_do_list_vue', {
+mongoose.connect('mongodb://ds211096.mlab.com:11096/heroku_6wxzltnw', { user: 'admin', pass: 'J58707887',
     useNewUrlParser: true
 });
 requireDir('./src/models');
 
-app.use('/api', require('./src/routes'))
+app.use('/api', require('./src/routes'));
 
-app.use("/", serveStatic(path.join (__dirname, '/client/dist')))
+app.use("/", serveStatic(path.join (__dirname, '/client/dist')));
 
 // Tentei fazer isso que vi em um fórum, mas não funcionou
 // app.use(history({
