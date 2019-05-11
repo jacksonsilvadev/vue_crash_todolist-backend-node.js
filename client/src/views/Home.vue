@@ -12,7 +12,7 @@ import addTodo from "../components/addTodo.vue";
 
 import axios from "axios";
 
-axios.defaults.baseURL = 'http://' + location.href.split('/')[2]
+axios.defaults.baseURL = 'https://' + location.href.split('/')[2]
 
 console.log(axios.defaults.baseURL);
 
