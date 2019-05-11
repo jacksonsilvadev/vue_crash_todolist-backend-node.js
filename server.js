@@ -24,7 +24,7 @@ requireDir('./src/models');
 
 app.use('/api', require('./src/routes'))
 
-app.use("/", serveStatic (path.join (__dirname, '/client/dist')))
+app.use("/", serveStatic(path.join (__dirname, '/client/dist')))
 
 // Tentei fazer isso que vi em um fórum, mas não funcionou
 // app.use(history({
@@ -37,4 +37,4 @@ app.get('*', function (request, response, next) {
 
 const PORT = process.env.PORT || 3000;
 
-app.listen(PORT, () => console.log('Servidor On || ' + PORT));
+app.listen(PORT, () => console.log(path.join (__dirname, '/client/dist')));
