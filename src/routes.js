@@ -1,12 +1,12 @@
 const express = require('express');
 const routes = express.Router();
-const path = require('path');
+// const path = require('path');
 
 const TaskController = require('./controllers/TaskController');
 
 
 // routes.get('/', function (req, res) {
-//     res.render(path.join(__dirname, '../tasks/public/index.html'))
+//     res.render(path.join(__dirname, '../client/public/index.html'))
 
 // })
 routes.get('/task', TaskController.index);

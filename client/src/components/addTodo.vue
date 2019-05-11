@@ -1,7 +1,7 @@
 <template>
   <div>
     <form @submit="addTodo">
-      <input type="text" v-model="title" name="title" placeholder="Add To-do to list">
+      <input type="text" v-model="name" name="name" placeholder="Add To-do to list">
       <input type="submit" value="Submit" class="btn">
     </form>
   </div>
@@ -14,7 +14,7 @@ export default {
   name: "addTodo",
   data() {
     return {
-      title: ""
+      name: ""
     };
   },
   methods: {
@@ -22,13 +22,13 @@ export default {
       e.preventDefault();
       const newTodo = {
         //    id: uuid.v4(),
-        title: this.title,
+        name: this.name,
         completed: false
       };
       //    Send up to parent template
 
       this.$emit("add-todo", newTodo);
-      this.title = "";
+      this.name = "";
     }
   }
 };

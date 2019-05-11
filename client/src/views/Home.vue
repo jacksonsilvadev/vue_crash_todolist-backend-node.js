@@ -1,7 +1,7 @@
 <template>
   <div id="app">
     <addTodo v-on:add-todo="addTodo"></addTodo>
-    <Todos v-bind:todos="todos" v-on:del-todo="deleteTodo"></Todos>
+    <Todos v-bind:todos="todos" v-on:upd-todo="updatedTodo" v-on:del-todo="deleteTodo"></Todos>
   </div>
 </template>
 
@@ -11,6 +11,10 @@ import Todos from "../components/Todos.vue";
 import addTodo from "../components/addTodo.vue";
 
 import axios from "axios";
+
+axios.defaults.baseURL = 'http://' + location.href.split('/')[2]
+
+console.log(axios.defaults.baseURL);
 
 export default {
   name: "Home",
@@ -26,28 +30,46 @@ export default {
   methods: {
     deleteTodo(id) {
       axios
-        .delete(`http://jsonplaceholder.typicode.com/todos/${id}`)
-        .then(res => (this.todos = this.todos.filter(todo => todo.id !== id)))
+        .delete(`http://localhost:3000/api/task/${id}`)
+        .then(res => (this.indexTodo()))
         .catch(err => console.log(err));
       // this.todos = this.todos.filter(todo => todo.id !== id)
     },
     addTodo(e) {
-      const { title, completed } = e;
+      const { name, completed } = e;
 
       axios
-        .post("http://jsonplaceholder.typicode.com/todos", {
-          title,
+        .post("http://localhost:3000/api/task/", {
+          name,
           completed
         })
-        .then(res => (this.todos = [...this.todos, res.data]))
+        .then(res => (this.indexTodo()))
         .catch(err => console.log(err));
+    },
+    updatedTodo(e){
+
+      
+      const { name, completed } = e;
+      axios
+        .put(`http://localhost:3000/api/task/${e._id}`, {
+          name,
+          completed
+        })
+        .then(res => (
+          this.indexTodo()
+          ))
+        .catch(err => console.log(err))
+    },
+    indexTodo(){
+      console.log()
+    axios
+      .get("http://localhost:3000/api/task")
+      .then(res => (this.todos = res.data))
+      .catch(err => console.log(err));
     }
   },
   created() {
-    axios
-      .get("http://jsonplaceholder.typicode.com/todos?_limit=5")
-      .then(res => (this.todos = res.data))
-      .catch(err => console.log(err));
+    this.indexTodo()
   }
 };
 </script>

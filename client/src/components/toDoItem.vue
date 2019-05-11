@@ -2,12 +2,12 @@
   <div class="todo-item" v-bind:class="{'is-complete':todo.completed}">
     <p>
       <label class="container-checkbox">
-        {{todo.title}}
+        {{todo.name}}
         <input type="checkbox" :checked="todo.completed" v-on:change="markComplete">
         <span class="checktrue"></span>
       </label>
-
-      <button @click="$emit('del-todo', todo.id)" class="del">X</button>
+    
+      <button @click="$emit('del-todo', todo._id)" class="del">X</button>
     </p>
   </div>
 </template>
@@ -20,6 +20,8 @@ export default {
     markComplete() {
       // completed sera diferente do que esta lá
       this.todo.completed = !this.todo.completed;
+      this.$emit('upd-todo', this.todo);
+
     }
   }
 };

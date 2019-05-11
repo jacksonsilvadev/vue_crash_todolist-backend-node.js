@@ -2,7 +2,7 @@
   <div>
     <div v-bind:key="todo.id" v-for="todo in todos">
       <!-- Enviando o  loop para o todoitem.vue template-->
-      <TodoItem v-bind:todo="todo" v-on:del-todo="$emit('del-todo',todo.id)"></TodoItem>
+      <TodoItem v-bind:todo="todo" v-on:upd-todo="$emit('upd-todo', todo)" v-on:del-todo="$emit('del-todo',todo._id)"></TodoItem>
     </div>
   </div>
 </template>

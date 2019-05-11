@@ -20,7 +20,7 @@
 
 <script>
 export default {
-  name: "header",
+  name: "nav-header",
   data() {
     return {
       title: "Jackson To Do List"
