@@ -2,8 +2,11 @@
   <div class="container">
     
       <h1 class="text-center">About</h1>
-        <p class="text"> Mini-Software criado por Jackson Silva, front-end em aprendizagem em NodeJS </p>
-        <img class="text-center" src="../assets/caneca3-verso.jpg" alt="Logo">
+        <p class="text"> 
+        Mini-Software criado por Jackson Silva, front-end em aprendizagem em NodeJS e VueJs.
+          Com Deploy na heroku e acesso a base de dados do mlab hospedado o MONGODB
+         </p>
+        
    
    
   </div>
