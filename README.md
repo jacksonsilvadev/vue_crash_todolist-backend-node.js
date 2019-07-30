@@ -1,29 +1,22 @@
-# vue_crash_todolist
+# Projeto Estudantil
 
-## Project setup
+## Mini-Software criado por Jackson Silva, front-end em aprendizagem em NodeJS e VueJs.
+## Com Deploy na heroku e acesso a base de dados do mlab hospedado o MONGODB
+
+
+### Para instalar dependencias
 ```
-npm install
+npm start
 ```
 
-### Compiles and hot-reloads for development
+### Automaticamente ja esta com os build de vue e node, Mas caso necessite
 ```
-npm run serve
+cd client
 ```
-
-### Compiles and minifies for production
+```
+npm i
+```
 ```
 npm run build
 ```
-
-### Run your tests
-```
-npm run test
-```
-
-### Lints and fixes files
-```
-npm run lint
-```
-
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
+##### Necessário estar com Vue CLI instalado.
